@@ -24,6 +24,8 @@ TYPES = {
 
 @output_plugin('sample_bq')
 class BulqOutputSampleBq:
+    VERSION = 0.0.1
+
     def __init__(self, conf):
         self._write_disposition = WRITE_DISPOSITION[conf['mode']]
         self._gcs_temp_location = 'gs://' + conf['gcs_bucket']

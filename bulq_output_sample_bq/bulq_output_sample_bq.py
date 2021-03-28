@@ -2,7 +2,7 @@ import apache_beam as beam
 from apache_beam.io.gcp.bigquery import WriteToBigQuery
 from apache_beam.io.gcp.bigquery import BigQueryDisposition
 
-from bulq.core.plugin import output_plugin
+from bulq.core.plugin_base import BulqOutputPlugin
 
 
 WRITE_DISPOSITION = {
@@ -22,8 +22,7 @@ TYPES = {
 }
 
 
-@output_plugin('sample_bq')
-class BulqOutputSampleBq:
+class BulqOutputSampleBq(BulqOutputPlugin):
     VERSION = '0.0.1'
 
     def __init__(self, conf):
